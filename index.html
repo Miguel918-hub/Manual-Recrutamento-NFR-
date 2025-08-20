@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Recrutamento - NFR</title>
+    <title>Manual de Recrutamento - Exército Russo RP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,13 +12,14 @@
             --russian-blue: #1F3B73;
             --russian-dark: #0D1B2A;
             --russian-light: #E0E1DD;
+            --russian-green: #2E5C2E;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', 'Arial', sans-serif;
+            font-family: 'Rajdhani', 'Arial', sans-serif;
         }
         
         body {
@@ -31,18 +32,19 @@
         }
         
         .russian-flag {
-            height: 10px;
+            height: 15px;
             background: linear-gradient(to bottom, white 33%, var(--russian-blue) 33%, var(--russian-blue) 66%, var(--russian-red) 66%);
             width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
         
         header {
             background: var(--russian-dark);
             color: var(--russian-light);
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             border-bottom: 5px solid var(--russian-gold);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -59,29 +61,53 @@
             opacity: 0.3;
         }
         
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .russian-emblem {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--russian-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             color: var(--russian-light);
             letter-spacing: 1px;
             position: relative;
+            text-transform: uppercase;
         }
         
         header h1::after {
             content: "";
             display: block;
-            width: 100px;
+            width: 150px;
             height: 3px;
             background: var(--russian-red);
-            margin: 10px auto;
+            margin: 15px auto;
         }
         
         header p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--russian-gold);
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: var(--russian-light);
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
         }
         
         .container {
@@ -91,7 +117,7 @@
         }
         
         .instructions {
-            background: rgba(13, 27, 42, 0.8);
+            background: rgba(13, 27, 42, 0.9);
             border-radius: 8px;
             padding: 2.5rem;
             margin-bottom: 2rem;
@@ -118,10 +144,31 @@
             padding-bottom: 0.8rem;
             border-bottom: 2px solid var(--russian-red);
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .instructions h2::after {
+            content: "☭";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        
+        .instructions h2::before {
+            content: "☭";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.3;
         }
         
         .step {
@@ -136,6 +183,7 @@
         
         .step:hover {
             transform: translateX(5px);
+            background: linear-gradient(to right, rgba(31, 59, 115, 0.4), rgba(31, 59, 115, 0.2));
         }
         
         .step h3 {
@@ -143,6 +191,7 @@
             margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
+            font-size: 1.5rem;
         }
         
         .step-number {
@@ -151,13 +200,22 @@
             align-items: center;
             background: var(--russian-red);
             color: var(--russian-light);
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             text-align: center;
             margin-right: 15px;
             font-weight: bold;
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            font-size: 1.2rem;
+        }
+        
+        .step-content {
+            padding-left: 55px;
+        }
+        
+        .step-content p {
+            margin-bottom: 0.5rem;
         }
         
         .important-note {
@@ -166,7 +224,7 @@
             border-left: 5px solid var(--russian-red);
             padding: 1.8rem;
             border-radius: 6px;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             position: relative;
         }
         
@@ -175,6 +233,7 @@
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
+            font-size: 1.6rem;
         }
         
         .important-note h3 i {
@@ -194,24 +253,55 @@
         .russian-eagle {
             text-align: center;
             font-size: 3rem;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
             color: var(--russian-gold);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .rank-section {
+            background: rgba(46, 92, 46, 0.2);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            border-left: 5px solid var(--russian-green);
+        }
+        
+        .rank-section h3 {
+            color: var(--russian-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rank-section h3 i {
+            margin-right: 10px;
         }
         
         footer {
             background-color: var(--russian-dark);
             color: var(--russian-light);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-top: 3rem;
             border-top: 3px solid var(--russian-red);
+        }
+        
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .military-border {
             height: 10px;
             background: repeating-linear-gradient(45deg, var(--russian-red), var(--russian-red) 10px, var(--russian-gold) 10px, var(--russian-gold) 20px);
             width: 100%;
+        }
+        
+        .cyrillic-text {
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+            color: var(--russian-gold);
+            margin-top: 1rem;
         }
         
         @media (max-width: 768px) {
@@ -230,6 +320,15 @@
             .step {
                 padding: 1.2rem;
             }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .step-content {
+                padding-left: 45px;
+            }
         }
     </style>
 </head>
@@ -237,8 +336,12 @@
     <div class="russian-flag"></div>
     
     <header>
-        <h1>Manual Recrutamento { NFR }</h1>
-        <p>**Como recrutar**</p>
+        <div class="header-content">
+            <div class="russian-emblem">⚔️</div>
+            <h1>Manual de Recrutamento</h1>
+            <p>**Como recrutar**</p>
+            <div class="header-subtitle">Procedimentos oficiais do Exército Russo de Roleplay para incorporação de novos recrutas</div>
+        </div>
     </header>
     
     <div class="military-border"></div>
@@ -248,29 +351,60 @@
             <h2>Processo de Recrutamento</h2>
             
             <div class="step">
-                <h3><span class="step-number">1</span> Instruir os civis</h3>
-                <p>Instruir os civis na sala de reuniões da base militar.</p>
+                <h3><span class="step-number">1</span> Instrução Inicial</h3>
+                <div class="step-content">
+                    <p>Instruir os civis na sala de reuniões da base militar.</p>
+                    <p><strong>Local:</strong> Sala de Reuniões da Base Militar</p>
+                    <p><strong>Conteúdo:</strong> Regras básicas, código de conduta e informações sobre a hierarquia</p>
+                </div>
             </div>
             
             <div class="step">
-                <h3><span class="step-number">2</span> Testes com o civil</h3>
-                <p>Fazer os testes com o civil na base militar (CQB, mira e comandos, JJ's).</p>
+                <h3><span class="step-number">2</span> Testes de Habilidade</h3>
+                <div class="step-content">
+                    <p>Fazer os testes com o civil na base militar (CQB, mira e comandos, JJ's).</p>
+                    <p><strong>Testes obrigatórios:</strong></p>
+                    <p>- CQB (Close Quarters Battle)</p>
+                    <p>- Teste de mira e comandos</p>
+                    <p>- JJ's (Exercícios de combate)</p>
+                </div>
             </div>
             
             <div class="step">
                 <h3><span class="step-number">3</span> Documentação</h3>
-                <p>Tirar a print com o civil na base militar e fazer o relatório de recrutamento.</p>
+                <div class="step-content">
+                    <p>Tirar a print com o civil na base militar e fazer o relatório de recrutamento.</p>
+                    <p><strong>Documentos necessários:</strong></p>
+                    <p>- Print screen com o recruta</p>
+                    <p>- Formulário de recrutamento preenchido</p>
+                    <p>- Relatório de desempenho nos testes</p>
+                </div>
             </div>
             
             <div class="step">
                 <h3><span class="step-number">4</span> Call de Recrutamento</h3>
-                <p>O civil deverá entrar na call recrutamento antes de qualquer coisa.</p>
+                <div class="step-content">
+                    <p>O civil deverá entrar na call recrutamento antes de qualquer coisa.</p>
+                    <p><strong>Protocolo de comunicação:</strong></p>
+                    <p>- Uso de linguagem formal</p>
+                    <p>- Respeito à hierarquia</p>
+                    <p>- Confirmação de áudio funcionando</p>
+                </div>
             </div>
             
             <div class="important-note">
                 <i class="hammer-sickle">☭</i>
                 <h3><i class="fas fa-star"></i> Requisitos para Recrutadores</h3>
                 <p>O militar que pode recrutar é 🎓・Terceiro-Sargento Pra cima.</p>
+                <div class="rank-section">
+                    <h3><i class="fas fa-medal"></i> Hierarquia Autorizada</h3>
+                    <p>- Terceiro-Sargento</p>
+                    <p>- Segundo-Sargento</p>
+                    <p>- Primeiro-Sargento</p>
+                    <p>- Subtenente</p>
+                    <p>- Aspirante a oficial</p>
+                    <p>- Oficiais superiores</p>
+                </div>
             </div>
             
             <div class="important-note">
@@ -278,16 +412,30 @@
                 <h3><i class="fas fa-gavel"></i> Regras de Conduta</h3>
                 <p>Caso o civil não esteja respeitando o instrutor, auxiliares ou o Exército, poderá dar última chance á ele para ser recrutado.</p>
                 <p>Caso o civil não concorde com nossos termos/ordens então poderá cancelar o recrutamento do mesmo.</p>
+                
+                <div class="rank-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Penalidades por Desrespeito</h3>
+                    <p>- Primeira ofensa: Advertência verbal</p>
+                    <p>- Segunda ofensa: Exclusão do processo seletivo</p>
+                    <p>- Ofensa grave: Banimento permanente do recrutamento</p>
+                </div>
             </div>
             
             <div class="important-note">
                 <i class="hammer-sickle">☭</i>
                 <h3><i class="fas fa-map-marked-alt"></i> Local do Recrutamento</h3>
                 <p>O RECRUTAMENTO DEVE SER NO BROOKHAVEN OU NO JOGO DA NFR E REALIZADO NA CALL</p>
+                
+                <div class="rank-section">
+                    <h3><i class="fas fa-landmark"></i> Bases Autorizadas</h3>
+                    <p>- Base Militar Principal (Brookhaven)</p>
+                    <p>- Centro de Treinamento (NFR Game)</p>
+                    <p>- Quartel-General (Call oficial)</p>
+                </div>
             </div>
             
             <div class="russian-eagle">
-                <i class="fas fa-crown"></i> FORTALEZA E HONRA <i class="fas fa-crown"></i>
+                <i class="fas fa-crown"></i> СЛАВА РОССИИ! (GLÓRIA À RÚSSIA!) <i class="fas fa-crown"></i>
             </div>
         </div>
     </div>
@@ -295,8 +443,41 @@
     <div class="military-border"></div>
     
     <footer>
-        <p>Manual de Recrutamento - Novo Exército Russo © 2023</p>
-        <p>Слава России! (Glória à Rússia!)</p>
+        <div class="footer-content">
+            <p>Manual de Recrutamento - Exército Russo de Roleplay © 2023</p>
+            <p>Para uso exclusivo dos membros autorizados da hierarquia militar</p>
+            <div class="cyrillic-text">Военная документация - Совершенно секретно</div>
+        </div>
     </footer>
+    
+    <script>
+        // Efeito de digitação no título
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = 1;
+                    step.style.transform = 'translateX(0)';
+                }, 300 + (index * 200));
+            });
+            
+            // Adicionar efeito de máquina de escrever no subtítulo
+            const subtitle = document.querySelector('.header-subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
 </body>
 </html>
