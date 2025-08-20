@@ -4,47 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual de Recrutamento - NFR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0a2e5c;
-            --secondary-color: #c9ab4d;
-            --accent-color: #8b0000;
-            --light-color: #f4f4f4;
-            --dark-color: #222;
+            --russian-red: #8B0000;
+            --russian-gold: #D4AF37;
+            --russian-blue: #1F3B73;
+            --russian-dark: #0D1B2A;
+            --russian-light: #E0E1DD;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', 'Arial', sans-serif;
         }
         
         body {
-            background-color: #f0f0f0;
-            color: #333;
+            background: linear-gradient(to bottom, var(--russian-dark), #1b263b);
+            color: var(--russian-light);
             line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%230D1B2A" width="100" height="100"/><path fill="%231B263B" d="M0,0 L100,100"/></svg>');
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .russian-flag {
+            height: 10px;
+            background: linear-gradient(to bottom, white 33%, var(--russian-blue) 33%, var(--russian-blue) 66%, var(--russian-red) 66%);
+            width: 100%;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color), #1a4b8c);
-            color: white;
+            background: var(--russian-dark);
+            color: var(--russian-light);
             text-align: center;
             padding: 2rem 1rem;
-            border-bottom: 5px solid var(--secondary-color);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid var(--russian-gold);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" stroke="%23D4AF37" stroke-width="2" stroke-opacity="0.1" x="10" y="10" width="80" height="80"/></svg>');
+            background-size: 50px;
+            opacity: 0.3;
         }
         
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: var(--russian-light);
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        header h1::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--russian-red);
+            margin: 10px auto;
         }
         
         header p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: var(--secondary-color);
+            color: var(--russian-gold);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
         .container {
@@ -54,71 +91,132 @@
         }
         
         .instructions {
-            background-color: white;
+            background: rgba(13, 27, 42, 0.8);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--russian-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instructions::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,0 L60,0 L60,60 L0,60 Z M30,15 A15,15 0 0,1 30,45 A15,15 0 0,1 30,15 Z"/></svg>');
+            background-size: 100px;
         }
         
         .instructions h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
+            color: var(--russian-gold);
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--russian-red);
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         
         .step {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: #f9f9f9;
+            margin-bottom: 1.8rem;
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(31, 59, 115, 0.3), rgba(31, 59, 115, 0.1));
             border-radius: 6px;
-            border-left: 3px solid var(--secondary-color);
+            border-left: 5px solid var(--russian-red);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateX(5px);
         }
         
         .step h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            color: var(--russian-gold);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
         }
         
         .step-number {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            width: 30px;
-            height: 30px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--russian-red);
+            color: var(--russian-light);
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             text-align: center;
-            line-height: 30px;
-            margin-right: 10px;
+            margin-right: 15px;
+            font-weight: bold;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
         }
         
         .important-note {
-            background-color: #fff4f4;
-            border: 1px solid var(--accent-color);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(139, 0, 0, 0.2), rgba(139, 0, 0, 0.1));
+            border: 1px solid var(--russian-red);
+            border-left: 5px solid var(--russian-red);
+            padding: 1.8rem;
             border-radius: 6px;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
+            position: relative;
         }
         
         .important-note h3 {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            color: var(--russian-red);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .important-note h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .hammer-sickle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .russian-eagle {
+            text-align: center;
+            font-size: 3rem;
+            margin: 1.5rem 0;
+            color: var(--russian-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background-color: var(--russian-dark);
+            color: var(--russian-light);
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 3px solid var(--russian-red);
+        }
+        
+        .military-border {
+            height: 10px;
+            background: repeating-linear-gradient(45deg, var(--russian-red), var(--russian-red) 10px, var(--russian-gold) 10px, var(--russian-gold) 20px);
+            width: 100%;
         }
         
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .container {
@@ -126,16 +224,24 @@
             }
             
             .instructions {
-                padding: 1.5rem;
+                padding: 1.8rem;
+            }
+            
+            .step {
+                padding: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="russian-flag"></div>
+    
     <header>
         <h1>Manual Recrutamento { NFR }</h1>
         <p>**Como recrutar**</p>
     </header>
+    
+    <div class="military-border"></div>
     
     <div class="container">
         <div class="instructions">
@@ -162,25 +268,35 @@
             </div>
             
             <div class="important-note">
-                <h3>Requisitos para Recrutadores</h3>
+                <i class="hammer-sickle">☭</i>
+                <h3><i class="fas fa-star"></i> Requisitos para Recrutadores</h3>
                 <p>O militar que pode recrutar é 🎓・Terceiro-Sargento Pra cima.</p>
             </div>
             
             <div class="important-note">
-                <h3>Regras de Conduta</h3>
+                <i class="hammer-sickle">☭</i>
+                <h3><i class="fas fa-gavel"></i> Regras de Conduta</h3>
                 <p>Caso o civil não esteja respeitando o instrutor, auxiliares ou o Exército, poderá dar última chance á ele para ser recrutado.</p>
                 <p>Caso o civil não concorde com nossos termos/ordens então poderá cancelar o recrutamento do mesmo.</p>
             </div>
             
             <div class="important-note">
-                <h3>Local do Recrutamento</h3>
+                <i class="hammer-sickle">☭</i>
+                <h3><i class="fas fa-map-marked-alt"></i> Local do Recrutamento</h3>
                 <p>O RECRUTAMENTO DEVE SER NO BROOKHAVEN OU NO JOGO DA NFR E REALIZADO NA CALL</p>
+            </div>
+            
+            <div class="russian-eagle">
+                <i class="fas fa-crown"></i> FORTALEZA E HONRA <i class="fas fa-crown"></i>
             </div>
         </div>
     </div>
     
+    <div class="military-border"></div>
+    
     <footer>
-        <p>Manual de Recrutamento - NFR © 2023</p>
+        <p>Manual de Recrutamento - Novo Exército Russo © 2023</p>
+        <p>Слава России! (Glória à Rússia!)</p>
     </footer>
 </body>
 </html>
