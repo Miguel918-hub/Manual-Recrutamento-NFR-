@@ -110,6 +110,57 @@
             font-style: italic;
         }
         
+        .anthem-player {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--russian-gold);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .anthem-title {
+            color: var(--russian-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .anthem-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .anthem-btn {
+            background: var(--russian-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .anthem-btn:hover {
+            background: var(--russian-gold);
+            transform: scale(1.1);
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -329,6 +380,11 @@
             .step-content {
                 padding-left: 45px;
             }
+            
+            .anthem-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -341,6 +397,26 @@
             <h1>Manual de Recrutamento</h1>
             <p>**Como recrutar**</p>
             <div class="header-subtitle">Procedimentos oficiais do Exército Russo de Roleplay para incorporação de novos recrutas</div>
+            
+            <div class="anthem-player">
+                <div class="anthem-title">Hino do Exército Russo</div>
+                <div class="anthem-controls">
+                    <button class="anthem-btn" id="playAnthem">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="anthem-btn" id="pauseAnthem">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button class="anthem-btn" id="stopAnthem">
+                        <i class="fas fa-stop"></i>
+                    </button>
+                </div>
+                <div class="volume-control">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.7">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+            </div>
         </div>
     </header>
     
@@ -450,6 +526,11 @@
         </div>
     </footer>
     
+    <audio id="russianAnthem" loop>
+        <source src="https://www.dropbox.com/scl/fi/0w7vs9w6t5j0y0y4j4j4r/hino-russo.mp3?rlkey=example&raw=1" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
     <script>
         // Efeito de digitação no título
         document.addEventListener('DOMContentLoaded', function() {
@@ -477,6 +558,38 @@
             }
             
             setTimeout(typeWriter, 1000);
+            
+            // Controles do hino
+            const anthem = document.getElementById('russianAnthem');
+            const playBtn = document.getElementById('playAnthem');
+            const pauseBtn = document.getElementById('pauseAnthem');
+            const stopBtn = document.getElementById('stopAnthem');
+            const volumeControl = document.getElementById('volumeControl');
+            
+            playBtn.addEventListener('click', () => {
+                anthem.play();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            });
+            
+            pauseBtn.addEventListener('click', () => {
+                anthem.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            });
+            
+            stopBtn.addEventListener('click', () => {
+                anthem.pause();
+                anthem.currentTime = 0;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            });
+            
+            volumeControl.addEventListener('input', () => {
+                anthem.volume = volumeControl.value;
+            });
+            
+            // Iniciar o hino automaticamente (com volume baixo)
+            anthem.volume = 0.3;
+            // anthem.play(); // Descomente esta linha se quiser que o hino comece automaticamente
         });
     </script>
 </body>
